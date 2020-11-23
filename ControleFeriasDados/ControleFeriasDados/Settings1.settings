@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ControleFeriasDados" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="ArquivoFuncionarios" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FuncionariosCadastro.txt</Value>
+    </Setting>
+    <Setting Name="ArquivoGrupos" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GruposCadastro.txt</Value>
+    </Setting>
+    <Setting Name="ArquivoFerias" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FeriasCadastro.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
