@@ -29,7 +29,7 @@ namespace ControleFeriasDados
             
             if (ids.Count() > 0)
             {
-                return ids.Max(i => i);
+                return ids.Max(i => i) + 1;
             }
             else
             {

@@ -10,7 +10,7 @@ namespace ControleFeriasDados
 {
     public class GrupoFuncionarioDados
     {
-        public List<GrupoFuncionario> BuscarTodosGrupos()
+        public List<GrupoFuncionario> GetGrupos()
         {
             var linhasGrupos = ArquivoUtils.LerLinhasArquivo(Settings1.Default.ArquivoGrupos);
 
@@ -21,6 +21,11 @@ namespace ControleFeriasDados
             }
 
             return grupos;
+        }
+
+        public GrupoFuncionario GetGrupo(string nome)
+        {
+            return GetGrupos().FirstOrDefault(g => g.Nome == nome);
         }
 
         public bool CriarNovoGrupo(string nomeGrupo)

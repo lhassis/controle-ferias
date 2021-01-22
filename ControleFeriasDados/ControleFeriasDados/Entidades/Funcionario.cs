@@ -14,12 +14,15 @@ namespace ControleFeriasDados.Entidades
 
         public int Grupo { get; set; }
 
+        public bool Servidor { get; set; }
+
         public Funcionario() { }
 
-        public Funcionario(string nome, int grupo)
+        public Funcionario(string nome, int grupo, bool servidor)
         {
             Nome = nome;
             Grupo = grupo;
+            Servidor = servidor;
         }
     }
 }

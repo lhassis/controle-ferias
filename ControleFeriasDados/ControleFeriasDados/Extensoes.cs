@@ -12,5 +12,6 @@ namespace ControleFeriasDados
         {
             return data.ToString(Utils.FORMATO_REGISTRO_DATA);
         }
+
     }
 }

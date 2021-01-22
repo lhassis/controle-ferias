@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Feriado.cs" />
     <Compile Include="Dominio\Ferias.cs" />
     <Compile Include="Dominio\Funcionario.cs" />
     <Compile Include="Dominio\GrupoFuncionario.cs" />
+    <Compile Include="Dominio\Resposta.cs" />
     <Compile Include="Extensoes\ExtensoesNegocio.cs" />
     <Compile Include="FeriasNegocio.cs" />
     <Compile Include="FuncionariosNegocio.cs" />
+    <Compile Include="FeriadosNegocio.cs" />
     <Compile Include="GrupoFuncionarioNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +58,9 @@
       <Project>{f838bbf0-273c-408d-aace-a9c2362b168a}</Project>
       <Name>ControleFeriasDados</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

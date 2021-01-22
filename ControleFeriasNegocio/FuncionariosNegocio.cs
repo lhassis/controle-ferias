@@ -17,15 +17,15 @@ namespace ControleFeriasNegocio
             return repositorioFuncionarios.GetFuncionarios().Select(f => f.ToFuncionarioDominio()).ToList();
         }
 
-        public void CadastrarFuncionario(string nome, string setor)
+        public Resposta<Funcionario> CadastrarFuncionario(string nome, string setor, bool servidor)
         {
             bool funcionarioExiste = false;
 
             if (string.IsNullOrEmpty(nome))
-                throw new Exception("Nome deve ser informado!");
+                return RetornarErroCadastroFuncionario("Nome deve ser informado!");
 
             if (string.IsNullOrEmpty(setor))
-                throw new Exception("Setor deve ser informado");
+                return RetornarErroCadastroFuncionario("Setor deve ser informado!");
             
             List<Funcionario> funcionarios = BuscarTodosFuncionarios();
             if (funcionarios == null || funcionarios.Count() == 0)
@@ -39,8 +39,34 @@ namespace ControleFeriasNegocio
             if (!funcionarioExiste)
             {
                 ControleFeriasDados.FuncionariosDados repositorioFuncionarios = new ControleFeriasDados.FuncionariosDados();
-                repositorioFuncionarios.InsertFuncionario(nome, setor);
+                repositorioFuncionarios.InsertFuncionario(nome, setor, servidor);
             }
+            else
+            {
+                return RetornarErroCadastroFuncionario("Funcionário de mesmo nome já cadastrado no setor.");
+            }
+
+            return RetornarSucessoCadastroFuncionario(null);
+        }
+
+        private Resposta<Funcionario> RetornarErroCadastroFuncionario(string mensagemErro)
+        {
+            return new Resposta<Funcionario>()
+            {
+                MensagemErro = mensagemErro,
+                Sucesso = false,
+                ObjetoRetorno = null,
+            };
+        }
+
+        private Resposta<Funcionario> RetornarSucessoCadastroFuncionario(Funcionario objFuncionario)
+        {
+            return new Resposta<Funcionario>()
+            {
+                MensagemErro = null,
+                Sucesso = true,
+                ObjetoRetorno = objFuncionario,
+            };
         }
         
     }

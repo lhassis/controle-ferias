@@ -11,5 +11,8 @@
     <Setting Name="ArquivoFerias" Type="System.String" Scope="Application">
       <Value Profile="(Default)">FeriasCadastro.txt</Value>
     </Setting>
+    <Setting Name="ArquivoFeriados" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FeriadosCadastro.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

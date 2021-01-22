@@ -18,7 +18,7 @@ namespace ControleFeriasNegocio
         public List<Dominio.GrupoFuncionario> BuscarGrupos()
         {
             ControleFeriasDados.GrupoFuncionarioDados grupoRepositorio = new ControleFeriasDados.GrupoFuncionarioDados();
-            List<ControleFeriasDados.Entidades.GrupoFuncionario> gruposDados = grupoRepositorio.BuscarTodosGrupos();
+            List<ControleFeriasDados.Entidades.GrupoFuncionario> gruposDados = grupoRepositorio.GetGrupos();
 
             return gruposDados.Select(g => g.ToGrupoFuncionarioDomain()).ToList();
         }

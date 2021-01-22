@@ -27,12 +27,17 @@ namespace ControleFeriasDados
             return funcionarios;
         }
 
-        public void InsertFuncionario(string nomeFuncionario, string nomeGrupo)
+        public List<Funcionario> GetFuncionariosPorGrupo(int idGrupo)
+        {
+            return GetFuncionarios().Where(f => f.Grupo == idGrupo).ToList();
+        }
+
+        public void InsertFuncionario(string nomeFuncionario, string nomeGrupo, bool servidor)
         {
             GrupoFuncionarioDados grupoRepositorio = new GrupoFuncionarioDados();
-            List<GrupoFuncionario> grupos = grupoRepositorio.BuscarTodosGrupos();
+            List<GrupoFuncionario> grupos = grupoRepositorio.GetGrupos();
             GrupoFuncionario grupo = grupos.FirstOrDefault(g => g.Nome == nomeGrupo);
-            Funcionario funcionario = new Funcionario(nomeFuncionario, grupo.Id);
+            Funcionario funcionario = new Funcionario(nomeFuncionario, grupo.Id, servidor);
             SalvarNoArquivo(funcionario);
         }
 
@@ -58,13 +63,14 @@ namespace ControleFeriasDados
             {
                 Identificador = Convert.ToInt32(dadosLinha[0]),
                 Nome = dadosLinha[1],
-                Grupo = Convert.ToInt32(dadosLinha[2])
+                Grupo = Convert.ToInt32(dadosLinha[2]),
+                Servidor = Convert.ToBoolean(dadosLinha[3]),
             };
         }
 
         private string FormatarLinhaCadastro(Funcionario funcionario)
         {
-            return string.Format("{0}\t{1}\t{2}", funcionario.Identificador, funcionario.Nome, funcionario.Grupo);
+            return string.Format("{0}\t{1}\t{2}\t{3}", funcionario.Identificador, funcionario.Nome, funcionario.Grupo, funcionario.Servidor);
         }
     }
 

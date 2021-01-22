@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Feriado.cs" />
     <Compile Include="Entidades\Ferias.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\GrupoFuncionario.cs" />
     <Compile Include="Extensoes.cs" />
+    <Compile Include="FeriadosDados.cs" />
     <Compile Include="FeriasDados.cs" />
     <Compile Include="FuncionariosDados.cs" />
     <Compile Include="GrupoFuncionarioDados.cs" />

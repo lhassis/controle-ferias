@@ -14,6 +14,8 @@ namespace ControleFeriasNegocio.Dominio
 
         public GrupoFuncionario Grupo { get; set; }
 
+        public bool Servidor { get; set; }
+
         public List<Ferias> PeriodosFerias { get; set; }
     }
 }
