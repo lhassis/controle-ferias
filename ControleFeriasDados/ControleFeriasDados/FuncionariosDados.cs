@@ -56,6 +56,26 @@ namespace ControleFeriasDados
             funcionario.Identificador = id;
             File.AppendAllText(nomeArquivo, FormatarLinhaCadastro(funcionario) + Environment.NewLine);
         }
+
+        public void DeleteFuncionario(int idFuncionario)
+        {
+            string[] linhasArquivo = ArquivoUtils.LerLinhasArquivo(nomeArquivo);
+            List<string> linhasNovoArquivo = new List<string>();
+
+            if (linhasArquivo != null)
+            {
+                foreach (var linha in linhasArquivo)
+                {
+                    var funcionario = InstanciarFuncionarioDeLinhaArquivo(linha);
+                    if (funcionario.Identificador != idFuncionario)
+                    {
+                        linhasNovoArquivo.Add(linha);
+                    }
+                }
+                File.WriteAllLines(nomeArquivo, linhasNovoArquivo);
+            }
+        }
+
         private Funcionario InstanciarFuncionarioDeLinhaArquivo(string linhaArquivo)
         {
             var dadosLinha = linhaArquivo.Split('\t');

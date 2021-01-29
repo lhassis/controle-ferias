@@ -38,6 +38,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridSetores = new System.Windows.Forms.DataGridView();
             this.tabFuncionarios = new System.Windows.Forms.TabPage();
+            this.btnRemoverFuncionario = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkServidor = new System.Windows.Forms.CheckBox();
@@ -119,9 +120,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(4, 19);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(561, 520);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // groupBox1
             // 
@@ -134,7 +137,7 @@
             this.groupBox1.Size = new System.Drawing.Size(309, 121);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cadastro de Setor";
+            this.groupBox1.Text = "Cadastro de Grupo";
             // 
             // btnCadastraSetor
             // 
@@ -185,7 +188,7 @@
             this.tabSetores.Padding = new System.Windows.Forms.Padding(3);
             this.tabSetores.Size = new System.Drawing.Size(1032, 574);
             this.tabSetores.TabIndex = 0;
-            this.tabSetores.Text = "Setores";
+            this.tabSetores.Text = "Grupos";
             this.tabSetores.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -197,7 +200,7 @@
             this.groupBox2.Size = new System.Drawing.Size(687, 447);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Setores";
+            this.groupBox2.Text = "Grupos";
             // 
             // dataGridSetores
             // 
@@ -209,6 +212,7 @@
             // 
             // tabFuncionarios
             // 
+            this.tabFuncionarios.Controls.Add(this.btnRemoverFuncionario);
             this.tabFuncionarios.Controls.Add(this.groupBox4);
             this.tabFuncionarios.Controls.Add(this.groupBox3);
             this.tabFuncionarios.Location = new System.Drawing.Point(4, 22);
@@ -218,6 +222,18 @@
             this.tabFuncionarios.TabIndex = 1;
             this.tabFuncionarios.Text = "Funcionários";
             this.tabFuncionarios.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoverFuncionario
+            // 
+            this.btnRemoverFuncionario.Enabled = false;
+            this.btnRemoverFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverFuncionario.Location = new System.Drawing.Point(153, 222);
+            this.btnRemoverFuncionario.Name = "btnRemoverFuncionario";
+            this.btnRemoverFuncionario.Size = new System.Drawing.Size(142, 26);
+            this.btnRemoverFuncionario.TabIndex = 6;
+            this.btnRemoverFuncionario.Text = "Remover";
+            this.btnRemoverFuncionario.UseVisualStyleBackColor = true;
+            this.btnRemoverFuncionario.Click += new System.EventHandler(this.btnRemoverFuncionario_Click);
             // 
             // groupBox4
             // 
@@ -278,9 +294,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 18);
+            this.label3.Size = new System.Drawing.Size(54, 18);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Setor:";
+            this.label3.Text = "Grupo:";
             // 
             // btnCadastroFuncionario
             // 
@@ -836,6 +852,7 @@
         private System.Windows.Forms.DateTimePicker dateNovoInicioFerias;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnRemoverFuncionario;
     }
 }
 

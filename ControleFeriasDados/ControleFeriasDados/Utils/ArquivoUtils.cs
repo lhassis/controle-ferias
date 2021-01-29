@@ -4,11 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace ControleFeriasDados
 {
     public static class ArquivoUtils
     {
+        private static ILog log = LogManager.GetLogger("feriasLog");
+
         public static string LerArquivo(string nomeArquivo)
         {
             try
@@ -22,6 +25,7 @@ namespace ControleFeriasDados
             }
             catch (IOException e)
             {
+                log.Error(e);
                 return string.Empty;
             }
         }
@@ -34,6 +38,7 @@ namespace ControleFeriasDados
             }
             catch (IOException e)
             {
+                log.Error(e);
                 return null;
             }
         }

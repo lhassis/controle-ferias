@@ -25,7 +25,7 @@ namespace ControleFeriasNegocio
                 return RetornarErroCadastroFuncionario("Nome deve ser informado!");
 
             if (string.IsNullOrEmpty(setor))
-                return RetornarErroCadastroFuncionario("Setor deve ser informado!");
+                return RetornarErroCadastroFuncionario("Grupo deve ser informado!");
             
             List<Funcionario> funcionarios = BuscarTodosFuncionarios();
             if (funcionarios == null || funcionarios.Count() == 0)
@@ -47,6 +47,27 @@ namespace ControleFeriasNegocio
             }
 
             return RetornarSucessoCadastroFuncionario(null);
+        }
+
+        public Resposta<Funcionario> RemoverFuncionario(int idFuncionario)
+        {
+            ControleFeriasDados.FuncionariosDados repositorioFuncionarios = new ControleFeriasDados.FuncionariosDados();
+            try
+            {
+                repositorioFuncionarios.DeleteFuncionario(idFuncionario);
+                return new Resposta<Funcionario>()
+                {
+                    Sucesso = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Resposta<Funcionario>()
+                {
+                    Sucesso = false,
+                    MensagemErro = ex.Message,
+                };
+            }
         }
 
         private Resposta<Funcionario> RetornarErroCadastroFuncionario(string mensagemErro)

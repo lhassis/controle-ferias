@@ -15,9 +15,12 @@ namespace ControleFeriasDados
             var linhasGrupos = ArquivoUtils.LerLinhasArquivo(Settings1.Default.ArquivoGrupos);
 
             List<GrupoFuncionario> grupos = new List<GrupoFuncionario>();
-            foreach(var linha in linhasGrupos)
+            if (linhasGrupos != null)
             {
-                grupos.Add(InstanciarGrupoFuncionarioDeLinhaArquivo(linha));
+                foreach (var linha in linhasGrupos)
+                {
+                    grupos.Add(InstanciarGrupoFuncionarioDeLinhaArquivo(linha));
+                }
             }
 
             return grupos;
